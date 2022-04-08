@@ -39,6 +39,44 @@ def get_balance_data(excel_file):
     return balance_data
 
 
+def get_incomer_data(excel_file):
+    wb = xw.Book(excel_file)
+    sheet = wb.sheets['AutoCAD']
+    incomer_data = [sheet.range('A21').value,
+                    sheet.range('A22').value,
+                    sheet.range('A23').value,
+                    sheet.range('A24').value,
+                    sheet.range('B21').value,
+                    sheet.range('B22').value,
+                    sheet.range('B23').value,
+                    sheet.range('B24').value,
+                    sheet.range('F21').value,
+                    sheet.range('F22').value,
+                    sheet.range('C21').value,
+                    sheet.range('C22').value,
+                    sheet.range('C23').value,
+                    sheet.range('C24').value,
+                    sheet.range('D1').value
+                    ]
+    return incomer_data
+
+
+def insert_incomer():
+    pt1 = POINT(0.0, 0.0, 0.0)
+    incomer_blk = ms.InsertBlock(pt1, "INCOMER", 1.0, 1.0, 1.0, 0)
+    incomer_blk_atts = total_blk.GetAttributes()
+    incomer_data = get_incomer_data(excel_file)
+    visibility_props = incomer_blk.GetDynamicBlockProperties()
+    for prop in visibility_props:
+        if prop.PropertyName == "IncomerType":
+            prop.Value = "SWITCH_3pole"
+    i = 0
+    for attr in incomer_blk_atts:
+        attr.TextString = incomer_data[i]
+        attr.Update()
+        i += 1
+
+
 def insert_total():
     pt1 = POINT(0.0, 0.0, 0.0)
     total_blk = ms.InsertBlock(pt1, "TOTAL", 1.0, 1.0, 1.0, 0)
@@ -64,10 +102,6 @@ app = QtWidgets.QApplication([])
 excel_file = QtWidgets.QFileDialog.getOpenFileName(caption="Выберите исходный файл Excel... ",
                                                    filter="XLS (*.xls);XLSX (*.xlsx)")[0]  # выбираем исхоный файл
 
-# total_data = get_total_data(excel_file)
-# balance_data = get_balance_data(excel_file)
-# print(total_data)
-# print(balance_data)
 
 acad = win32com.client.Dispatch("AutoCAD.Application")
 # doc = acad.ActiveDocument
@@ -79,16 +113,4 @@ acad.Visible = True
 ms = doc.ModelSpace
 
 insert_total()
-
-
-# while i <= groups:
-#     pt1 = POINT(pt_x, pt_y, pt_z)
-#     line_block = ms.InsertBlock(pt1, "TOTAL", 1.0, 1.0, 1.0, 0)
-#     for attr in line_block.GetAttributes():
-#         attr.TextString = "PanelName"
-#         attr.Update()
-#     # line_block_atts = line_block.GetAttributes()
-#     # line_block_atts(0).TextString = "PanelName"
-#     # line_block_atts.Update()
-#     pt_x += 25
-#     i += 1
+insert_incomer()
