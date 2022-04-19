@@ -1,11 +1,12 @@
 import win32com.client
-import time
 import pythoncom
 from PyQt5 import QtWidgets
+import pyacadcom
 
 
 app = QtWidgets.QApplication([])
-acad = win32com.client.Dispatch("AutoCAD.Application")
+# acad = win32com.client.Dispatch("AutoCAD.Application")
+acad = pyacadcom.AutoCAD()
 dwg_file = QtWidgets.QFileDialog.getOpenFileName(caption="Выберите файл шаблона или схемы в AutoCAD... ",
                                                  filter="DWG (*.dwg)")[0]  # выбираем исхоный файл
 doc = acad.Documents.Open(dwg_file)
@@ -16,8 +17,7 @@ try:
 except:
     pass
 
-time.sleep(1)
-objSS = doc.SelectionSets.Add("toErase")
+objSS = doc.SelectionSets.Add("blocks")
 
 FilterType = win32com.client.VARIANT(pythoncom.VT_ARRAY | pythoncom.VT_I2, [0])
 FilterData = win32com.client.VARIANT(
@@ -29,7 +29,7 @@ objSS.Select(SELECT_ALL, pythoncom.Empty,
 print("\n")
 
 for obj in objSS:
-    if obj.EffectiveName == "TOTAL" or obj.EffectiveName == "KNF" or obj.EffectiveName == "INCOMER" or obj.EffectiveName == "AUTOMAT" or obj.EffectiveName == "LINE":
+    if obj.EffectiveName in ["TOTAL", "KNF", "INCOMER", "AUTOMAT", "LINE"]:
         obj.Delete()
 
 objSS.Delete()

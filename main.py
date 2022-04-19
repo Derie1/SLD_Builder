@@ -4,11 +4,14 @@ import time
 import xlwings as xw
 from PyQt5 import QtCore, QtWidgets
 from math import *
+import pyacadcom
+from random import randint
 
 
 # * functions
 def POINT(x, y, z):
-    return win32com.client.VARIANT(pythoncom.VT_ARRAY | pythoncom.VT_R8, (x, y, z))
+    return pyacadcom.acadPoint(x, y, z).coordinates
+    # ? return win32com.client.VARIANT(pythoncom.VT_ARRAY | pythoncom.VT_R8, (x, y, z))
 
 
 # * read and store total data of panel from excel sheet named 'AutoCAD'
@@ -136,11 +139,9 @@ wb = xw.Book(excel_file)
 sheet = wb.sheets['AutoCAD']
 source_data = sheet.range('DB_EXPORT')
 
-# list of lists of columns with rounded floats
-groups_data = round_data(source_data)
-
 # ! selecting source dwg file and deleting existing target blocks (if exist)
-acad = win32com.client.Dispatch("AutoCAD.Application")
+# acad = win32com.client.Dispatch("AutoCAD.Application")
+acad = pyacadcom.AutoCAD()
 dwg_file = QtWidgets.QFileDialog.getOpenFileName(caption="Выберите файл шаблона или схемы в AutoCAD... ",
                                                  filter="DWG (*.dwg)")[0]  # выбираем исхоный файл
 doc = acad.Documents.Open(dwg_file)
@@ -162,19 +163,20 @@ SELECT_ALL = 5
 objSS.Select(SELECT_ALL, pythoncom.Empty,
              pythoncom.Empty, FilterType, FilterData)
 
+
 for obj in objSS:
-    if obj.EffectiveName == "TOTAL" or obj.EffectiveName == "KNF" or obj.EffectiveName == "INCOMER" or obj.EffectiveName == "AUTOMAT" or obj.EffectiveName == "LINE":
+    if obj.EffectiveName in ["TOTAL", "KNF", "INCOMER", "AUTOMAT", "LINE"]:
         obj.Delete()
 objSS.Delete()
 
-
+time.sleep(1)
 # ! inserting TOTAL and KNF block in model space
 insert_total()
 
 # ! inserting INCOMER block in model space
 insert_incomer()
 
-# ! inserting AUTOMATs and LIMEs blocks
+# ! inserting AUTOMATs and LINEs blocks
 rounded_data = round_data(source_data)
 pt_x = 0.0
 for column in rounded_data:
