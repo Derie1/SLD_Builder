@@ -2,16 +2,14 @@ import win32com.client
 import pythoncom
 import time
 import xlwings as xw
-from PyQt5 import QtCore, QtWidgets
-from math import *
+from PyQt5 import QtWidgets
+from math import modf
 import pyacadcom
-from random import randint
 
 
 # * functions
 def POINT(x, y, z):
     return pyacadcom.acadPoint(x, y, z).coordinates
-    # ? return win32com.client.VARIANT(pythoncom.VT_ARRAY | pythoncom.VT_R8, (x, y, z))
 
 
 # * read and store total data of panel from excel sheet named 'AutoCAD'
@@ -140,7 +138,6 @@ sheet = wb.sheets['AutoCAD']
 source_data = sheet.range('DB_EXPORT')
 
 # ! selecting source dwg file and deleting existing target blocks (if exist)
-# acad = win32com.client.Dispatch("AutoCAD.Application")
 acad = pyacadcom.AutoCAD()
 dwg_file = QtWidgets.QFileDialog.getOpenFileName(caption="Выберите файл шаблона или схемы в AutoCAD... ",
                                                  filter="DWG (*.dwg)")[0]  # выбираем исхоный файл
