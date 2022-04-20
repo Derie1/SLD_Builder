@@ -1,4 +1,3 @@
-/.test_code
-/.pyacadcom_source
-/__pycache__
+test_code/
+__pycache__/
 План проекта.docx
