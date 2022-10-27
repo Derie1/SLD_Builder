@@ -4,6 +4,10 @@
 
 SLD_builder is a script for building single line diagram of electrical distribution board from excel colculation file. SLD builds in Autodesk AutoCAD application.
 
+### Video demonstration
+
+[![Watch the video](https://i9.ytimg.com/vi/oWrLLjZIoMI/mq2.jpg?sqp=CMDG65oG&rs=AOn4CLAaAE0nqTkAg_HEYNn_SF7A_RSbKA)](https://youtu.be/oWrLLjZIoMI)
+
 ### Usage
 
 First, you should create colculation with excel file (use template from "test_files" folder).
