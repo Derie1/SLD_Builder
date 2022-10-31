@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "SLD_Builder"
+version = "0.3.0"
+description = "Program to automate building single line diagram in AutoCAD graphical environment"
+authors = ["Mikhail Davydov <mdavydov83@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyacadcom = "^0.0.10"
+xlwings = "^0.28.5"
+PyQt5 = "^5.15.7"
+openpyxl = "^3.0.10"
+
+[tool.poetry.dev-dependencies]
+autopep8 = "^2.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
