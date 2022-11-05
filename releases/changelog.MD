@@ -1,5 +1,8 @@
 ## SLD Builder changelog
 
+### v/0.4.0
+* changed Excel engine from xlwings to openpyxl. Excel window no more appear.
+
 ### v/0.3.0
 * fixed a program error when errors or missing data appear in the Excel calculation file 
 
