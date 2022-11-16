@@ -1,5 +1,9 @@
 ## SLD Builder changelog
 
+### v/0.4.1
+* added english versions of template files: 
+ - DB_NAME_(discription)_v1.5_EN.xlsx
+ - SLD_template_EN.dwg
 ### v/0.4.0
 * changed Excel engine from xlwings to openpyxl. Excel window no more appear.
 
