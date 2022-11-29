@@ -1,0 +1,1 @@
+pyuic5 -x .\sld_builder.ui -o qt_export.py
