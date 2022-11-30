@@ -154,7 +154,7 @@ def build_SLD(excel_file, dwg_file):
             i.Delete()
     except:
         pass
-    time.sleep(0.1)
+    time.sleep(1)
     objSS = doc.SelectionSets.Add("toErase")
 
     FilterType = win32com.client.VARIANT(pythoncom.VT_ARRAY | pythoncom.VT_I2, [0])
@@ -171,7 +171,7 @@ def build_SLD(excel_file, dwg_file):
             obj.Delete()
     objSS.Delete()
 
-    time.sleep(0.1)
+    time.sleep(1)
 
     wb = opxl.load_workbook(excel_file, data_only=True)
     sheet = wb["AutoCAD"]

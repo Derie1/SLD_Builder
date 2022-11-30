@@ -14,7 +14,7 @@
    </rect>
   </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
@@ -34,6 +34,9 @@
   <property name="windowTitle">
    <string>Single Line Diagram builder (SLD Builder)</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <property name="locale">
    <locale language="English" country="UnitedStates"/>
   </property>
@@ -50,10 +53,10 @@
    <widget class="QLabel" name="label_main">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>20</y>
-      <width>761</width>
-      <height>81</height>
+      <x>0</x>
+      <y>0</y>
+      <width>400</width>
+      <height>230</height>
      </rect>
     </property>
     <property name="font">
@@ -62,17 +65,29 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>Текст приветствия, основные указания, логотип.</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::PlainText</enum>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+    <property name="margin">
+     <number>15</number>
     </property>
    </widget>
    <widget class="QPushButton" name="btn_build">
     <property name="geometry">
      <rect>
       <x>680</x>
-      <y>550</y>
+      <y>560</y>
       <width>100</width>
       <height>25</height>
      </rect>
@@ -97,7 +112,7 @@
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>260</y>
+      <y>270</y>
       <width>471</width>
       <height>25</height>
      </rect>
@@ -109,26 +124,32 @@
      </sizepolicy>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 11pt &quot;MS Shell Dlg 2&quot;;</string>
+     <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
     </property>
     <property name="clearButtonEnabled">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLabel" name="label_XLSX">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>260</y>
-      <width>30</width>
-      <height>25</height>
+      <x>45</x>
+      <y>274</y>
+      <width>18</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
     </property>
     <property name="text">
-     <string>.xlsx</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>icons/xlsx.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLineEdit" name="line_dwg_path">
@@ -138,7 +159,7 @@
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>320</y>
+      <y>330</y>
       <width>471</width>
       <height>25</height>
      </rect>
@@ -150,33 +171,40 @@
      </sizepolicy>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 11pt &quot;MS Shell Dlg 2&quot;;</string>
+     <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(240, 240, 240);</string>
     </property>
     <property name="clearButtonEnabled">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLabel" name="label_DWG">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>320</y>
-      <width>30</width>
-      <height>25</height>
+      <x>45</x>
+      <y>334</y>
+      <width>18</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
     </property>
     <property name="text">
-     <string>.dwg</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>icons/dwg.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLabel" name="label_xlsx_browse">
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>235</y>
+      <y>245</y>
       <width>331</width>
       <height>23</height>
      </rect>
@@ -192,7 +220,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>295</y>
+      <y>305</y>
       <width>301</width>
       <height>23</height>
      </rect>
@@ -208,7 +236,7 @@
     <property name="geometry">
      <rect>
       <x>430</x>
-      <y>295</y>
+      <y>305</y>
       <width>191</width>
       <height>23</height>
      </rect>
@@ -227,7 +255,7 @@
     <property name="geometry">
      <rect>
       <x>545</x>
-      <y>262</y>
+      <y>272</y>
       <width>25</width>
       <height>23</height>
      </rect>
@@ -240,7 +268,7 @@
     <property name="geometry">
      <rect>
       <x>545</x>
-      <y>322</y>
+      <y>332</y>
       <width>25</width>
       <height>23</height>
      </rect>
@@ -253,7 +281,7 @@
     <property name="geometry">
      <rect>
       <x>560</x>
-      <y>550</y>
+      <y>560</y>
       <width>100</width>
       <height>25</height>
      </rect>
@@ -274,33 +302,45 @@
      <string>Quit</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>0</y>
+      <width>400</width>
+      <height>230</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>icons/sld_white.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>235</y>
+      <width>800</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>18</height>
-    </rect>
-   </property>
-  </widget>
-  <action name="actionBrowseExcelFile">
-   <property name="text">
-    <string>BrowseExcelFile</string>
-   </property>
-   <property name="toolTip">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Browse for Excel file (*.xls, *.xlsx) ...&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
-  </action>
-  <action name="actionBrowseDWG">
-   <property name="text">
-    <string>BrowseDWG</string>
-   </property>
-   <property name="toolTip">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Browse for AutoCAD file (*.dwg) ...&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
-  </action>
  </widget>
  <resources/>
  <connections>
