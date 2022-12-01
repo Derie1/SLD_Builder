@@ -1,5 +1,9 @@
 ## SLD Builder changelog
 
+### v/0.5.5
+* fix: completed translation Excel file to English.
+* new: added GUI - first gui release, simple but functional.
+
 ### v/0.4.1
 * added english versions of template files: 
  - DB_NAME_(discription)_v1.5_EN.xlsx

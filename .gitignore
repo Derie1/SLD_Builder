@@ -8,3 +8,4 @@ exe_build_conf.json
 main copy.py
 main.py.bak
 qt_export.py
+qt_export_qt6.py

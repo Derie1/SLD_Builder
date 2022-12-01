@@ -2,7 +2,7 @@ import win32com.client
 import pythoncom
 import time
 import openpyxl as opxl
-from PyQt5 import QtWidgets
+from PyQt6 import QtWidgets
 from math import modf
 import pyacadcom
 

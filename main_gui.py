@@ -157,7 +157,8 @@ class Ui_SLD_Builder(object):
     def retranslateUi(self, SLD_Builder):
         _translate = QtCore.QCoreApplication.translate
         SLD_Builder.setWindowTitle(_translate("SLD_Builder", "Single Line Diagram builder (SLD Builder)"))
-        self.label_main.setText(_translate("SLD_Builder", "Текст приветствия, основные указания, логотип."))
+        WELCOME_TEXT = """Welcome to SLD Builder.\nPlease, select your Excel calculation file. Then mark down the checkbox for create new panel from the template or select your dwg file with previosly created panel."""
+        self.label_main.setText(_translate("SLD_Builder", WELCOME_TEXT))
         self.btn_build.setText(_translate("SLD_Builder", "Build SLD"))
         self.label_xlsx_browse.setText(_translate("SLD_Builder", "Browse Excel file to build SLD from..."))
         self.label_dwg_browse.setText(_translate("SLD_Builder", "Browse AutoCAD drawing file to build SLD to..."))
