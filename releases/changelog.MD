@@ -1,6 +1,9 @@
 ## SLD Builder changelog
 
-### v/0.5.5
+## v/0.5.1
+* fix: fix in voltage drop calculation formula at xlsx templates
+
+### v/0.5.0
 * fix: completed translation Excel file to English.
 * new: added GUI - first gui release, simple but functional.
 
