@@ -11,12 +11,12 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 #! <<< FROM QT DESIGNER
 
-#* MY CODE >>>
+# * MY CODE >>>
 import sys
 import os
 
 from main import build_SLD
-#* <<< MY CODE
+# * <<< MY CODE
 
 
 #! FROM QT DESIGNER >>>
@@ -25,15 +25,18 @@ class Ui_SLD_Builder(object):
         SLD_Builder.setObjectName("SLD_Builder")
         SLD_Builder.setEnabled(True)
         SLD_Builder.resize(800, 600)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(SLD_Builder.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            SLD_Builder.sizePolicy().hasHeightForWidth())
         SLD_Builder.setSizePolicy(sizePolicy)
         SLD_Builder.setMinimumSize(QtCore.QSize(800, 600))
         SLD_Builder.setMaximumSize(QtCore.QSize(800, 600))
         SLD_Builder.setStyleSheet("")
-        SLD_Builder.setLocale(QtCore.QLocale(QtCore.QLocale.Language.English, QtCore.QLocale.Country.UnitedStates))
+        SLD_Builder.setLocale(QtCore.QLocale(
+            QtCore.QLocale.Language.English, QtCore.QLocale.Country.UnitedStates))
         SLD_Builder.setIconSize(QtCore.QSize(20, 20))
         SLD_Builder.setDockNestingEnabled(False)
         self.centralwidget = QtWidgets.QWidget(SLD_Builder)
@@ -49,7 +52,7 @@ class Ui_SLD_Builder(object):
         self.label_main.setWordWrap(True)
         self.label_main.setObjectName("label_main")
         self.btn_build = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_build.setGeometry(QtCore.QRect(680, 560, 100, 25))
+        self.btn_build.setGeometry(QtCore.QRect(300, 400, 200, 50))
         font = QtGui.QFont()
         font.setFamily("MS Shell Dlg 2")
         font.setPointSize(12)
@@ -61,10 +64,12 @@ class Ui_SLD_Builder(object):
         self.btn_build.setObjectName("btn_build")
         self.line_xlsx_path = QtWidgets.QLineEdit(self.centralwidget)
         self.line_xlsx_path.setGeometry(QtCore.QRect(70, 270, 471, 25))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.line_xlsx_path.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.line_xlsx_path.sizePolicy().hasHeightForWidth())
         self.line_xlsx_path.setSizePolicy(sizePolicy)
         self.line_xlsx_path.setStyleSheet("font: 8pt \"MS Shell Dlg 2\";")
         self.line_xlsx_path.setClearButtonEnabled(False)
@@ -79,10 +84,12 @@ class Ui_SLD_Builder(object):
         self.line_dwg_path = QtWidgets.QLineEdit(self.centralwidget)
         self.line_dwg_path.setEnabled(True)
         self.line_dwg_path.setGeometry(QtCore.QRect(70, 330, 471, 25))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.line_dwg_path.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.line_dwg_path.sizePolicy().hasHeightForWidth())
         self.line_dwg_path.setSizePolicy(sizePolicy)
         self.line_dwg_path.setStyleSheet("font: 8pt \"MS Shell Dlg 2\";")
         self.line_dwg_path.setClearButtonEnabled(False)
@@ -104,7 +111,8 @@ class Ui_SLD_Builder(object):
         self.label_dwg_browse.setObjectName("label_dwg_browse")
         self.checkBox_is_new_sld = QtWidgets.QCheckBox(self.centralwidget)
         self.checkBox_is_new_sld.setGeometry(QtCore.QRect(430, 305, 191, 23))
-        self.checkBox_is_new_sld.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";")
+        self.checkBox_is_new_sld.setStyleSheet(
+            "font: 10pt \"MS Shell Dlg 2\";")
         self.checkBox_is_new_sld.setTristate(False)
         self.checkBox_is_new_sld.setObjectName("checkBox_is_new_sld")
         self.btn_browse_xlsx = QtWidgets.QPushButton(self.centralwidget)
@@ -114,7 +122,7 @@ class Ui_SLD_Builder(object):
         self.btn_browse_dwg.setGeometry(QtCore.QRect(545, 332, 25, 23))
         self.btn_browse_dwg.setObjectName("btn_browse_dwg")
         self.btn_quit = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_quit.setGeometry(QtCore.QRect(560, 560, 100, 25))
+        self.btn_quit.setGeometry(QtCore.QRect(680, 560, 100, 25))
         font = QtGui.QFont()
         font.setFamily("MS Shell Dlg 2")
         font.setPointSize(12)
@@ -126,10 +134,12 @@ class Ui_SLD_Builder(object):
         self.btn_quit.setObjectName("btn_quit")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(400, 0, 400, 230))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.label.sizePolicy().hasHeightForWidth())
         self.label.setSizePolicy(sizePolicy)
         self.label.setText("")
         self.label.setPixmap(QtGui.QPixmap(".\\icons/sld_white.png"))
@@ -143,52 +153,66 @@ class Ui_SLD_Builder(object):
         SLD_Builder.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(SLD_Builder)
-        self.checkBox_is_new_sld.toggled['bool'].connect(self.line_dwg_path.setDisabled) # type: ignore
-        self.checkBox_is_new_sld.toggled['bool'].connect(self.btn_browse_dwg.setDisabled) # type: ignore
+        self.checkBox_is_new_sld.toggled['bool'].connect(
+            self.line_dwg_path.setDisabled)  # type: ignore
+        self.checkBox_is_new_sld.toggled['bool'].connect(
+            self.btn_browse_dwg.setDisabled)  # type: ignore
         QtCore.QMetaObject.connectSlotsByName(SLD_Builder)
 #! <<< FROM QT DESIGNER
 
-#* MY CODE >>>
-        self.checkBox_is_new_sld.toggled['bool'].connect(lambda: self.line_dwg_path.setText(os.getcwd() + "\\templates\\SLD_template_EN.dwg"))
+# * MY CODE >>>
+        self.checkBox_is_new_sld.toggled['bool'].connect(
+            lambda: self.line_dwg_path.setText(os.getcwd() + "\\templates\\SLD_template_EN.dwg"))
         self.button_actions()
-#* <<< MY CODE
+# * <<< MY CODE
 
 #! FROM QT DESIGNER >>>
     def retranslateUi(self, SLD_Builder):
         _translate = QtCore.QCoreApplication.translate
-        SLD_Builder.setWindowTitle(_translate("SLD_Builder", "Single Line Diagram builder (SLD Builder)"))
+        SLD_Builder.setWindowTitle(_translate(
+            "SLD_Builder", "Single Line Diagram builder (SLD Builder)"))
         WELCOME_TEXT = """Welcome to SLD Builder.\nPlease, select your Excel calculation file. Then mark down the checkbox for create new panel from the template or select your dwg file with previosly created panel."""
         self.label_main.setText(_translate("SLD_Builder", WELCOME_TEXT))
         self.btn_build.setText(_translate("SLD_Builder", "Build SLD"))
-        self.label_xlsx_browse.setText(_translate("SLD_Builder", "Browse Excel file to build SLD from..."))
-        self.label_dwg_browse.setText(_translate("SLD_Builder", "Browse AutoCAD drawing file to build SLD to..."))
-        self.checkBox_is_new_sld.setText(_translate("SLD_Builder", "Build new SLD from template"))
+        self.label_xlsx_browse.setText(_translate(
+            "SLD_Builder", "Browse Excel file to build SLD from..."))
+        self.label_dwg_browse.setText(_translate(
+            "SLD_Builder", "Browse AutoCAD drawing file to build SLD to..."))
+        self.checkBox_is_new_sld.setText(_translate(
+            "SLD_Builder", "Build new SLD from template"))
         self.btn_browse_xlsx.setText(_translate("SLD_Builder", "..."))
         self.btn_browse_dwg.setText(_translate("SLD_Builder", "..."))
         self.btn_quit.setText(_translate("SLD_Builder", "Quit"))
 #! <<< FROM QT DESIGNER
 
-#* MY CODE >>>
-        self.line_xlsx_path.setText(os.getcwd() + "\\templates\\DB_NAME_(discription)_v1.5_EN.xlsx")
-        self.line_dwg_path.setText(os.getcwd() + "\\templates\\SLD_template_EN.dwg")
+# * MY CODE >>>
+        self.line_xlsx_path.setText(
+            os.getcwd() + "\\templates\\DB_NAME_(discription)_v1.5_EN.xlsx")
+        self.line_dwg_path.setText(
+            os.getcwd() + "\\templates\\SLD_template_EN.dwg")
 
     def button_actions(self):
         self.btn_quit.clicked.connect(lambda: quit())
-        
-        self.btn_browse_xlsx.clicked.connect(lambda: self.get_file_name(self.btn_browse_xlsx.objectName()))
-        self.btn_browse_dwg.clicked.connect(lambda: self.get_file_name(self.btn_browse_dwg.objectName()))
 
-        self.btn_build.clicked.connect(lambda: build_SLD(self.line_xlsx_path.text(), 
+        self.btn_browse_xlsx.clicked.connect(
+            lambda: self.get_file_name(self.btn_browse_xlsx.objectName()))
+        self.btn_browse_dwg.clicked.connect(
+            lambda: self.get_file_name(self.btn_browse_dwg.objectName()))
+
+        self.btn_build.clicked.connect(lambda: build_SLD(self.line_xlsx_path.text(),
                                                          self.line_dwg_path.text()))
 
     def get_file_name(self, btn_name):
         if btn_name == "btn_browse_xlsx":
-            file = QtWidgets.QFileDialog.getOpenFileName(caption="Browse for Excel calculation file... ", filter="XLS (*.xls);XLSX (*.xlsx)")[0]
+            file = QtWidgets.QFileDialog.getOpenFileName(
+                caption="Browse for Excel calculation file... ", filter="XLS (*.xls);XLSX (*.xlsx)")[0]
             self.line_xlsx_path.setText(file)
         elif btn_name == "btn_browse_dwg":
-            file = QtWidgets.QFileDialog.getOpenFileName(caption="Browse for dwg template file or panel created before... ", filter="DWG (*.dwg)")[0]
+            file = QtWidgets.QFileDialog.getOpenFileName(
+                caption="Browse for dwg template file or panel created before... ", filter="DWG (*.dwg)")[0]
             self.line_dwg_path.setText(file)
-#* <<< MY CODE
+# * <<< MY CODE
+
 
 #! FROM QT DESIGNER >>>
 if __name__ == "__main__":
@@ -200,4 +224,3 @@ if __name__ == "__main__":
     SLD_Builder.show()
     sys.exit(app.exec())
 #! <<< FROM QT DESIGNER
-

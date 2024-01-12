@@ -2,6 +2,7 @@ test_files/
 test_code/
 __pycache__/
 _bak.venv/
+releases/
 План проекта.docx
 presentation_scenario.docx
 exe_build_conf.json
